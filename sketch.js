@@ -7,6 +7,10 @@ const Render = Matter.Render;
 var dustbinObj, paperObject,groundObject	
 var world;
 
+function preload(){
+dustbinImg= loadImage("dustbin.png")
+paperImg= loadImage("paper.png")
+}
 
 function setup() {
 	createCanvas(1600, 700);
@@ -20,6 +24,10 @@ function setup() {
 	groundObject=new ground(width/2,670,width,20);
 	//Create a Ground
 	
+        ground=new Ground(width/2,670,width,20);
+	leftSide = new Ground(1100,600,10,120); 
+	rightSide = new Ground(1270,600,10,120); 
+	bottomSide = new Ground(1190,650,150,20);
 
 	var render = Render.create({
 	  element: document.body,
@@ -34,6 +42,7 @@ function setup() {
 	Engine.run(engine);
 	//Render.run(render);
   
+	
 }
 
 
@@ -44,10 +53,14 @@ function draw() {
   dustbinObj.display();
   paperObject.display();
   groundObject.display();
-  
+  ground.display();
+leftSide.display();
+rightSide.display();
+bottomSide.display();
+ imageMode(CENTER);
+image(paperImg,ball.position.x,ball.position.y,radius,radius)
+image(dustbinImg, 1185, 570, 200,200)
  
-  
-  
  
 }
 
